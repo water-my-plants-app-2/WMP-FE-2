@@ -1,6 +1,6 @@
 {
-  "name": "wmp2-front-end",
-  "version": "0.1.0",
+  "name": "App.js",
+  "version": "?",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
@@ -29,5 +29,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "description": "Water My Plants Lambda School Build Week",
+  "main": "index.js",
+  "repository": "https://github.com/water-my-plants-app-2/WMP-FE-2",
+  "author": "Christie Roy",
+  "license": "MIT"
 }
