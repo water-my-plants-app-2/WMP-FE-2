@@ -23,11 +23,11 @@ class App extends Component {
   componentDidMount = () => this.props.getSanityCheck();
 
   render() {
-    // const { message } = this.props;
+    const { message } = this.props;
     return (
       <StyledApp>
-        {/* <Header />
-        <p className="message">{message}</p> */}
+        <Header />
+        <p className="message">{message}</p>
         <ConditionalRender />
       </StyledApp>
     );
