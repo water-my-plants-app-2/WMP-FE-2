@@ -31,22 +31,8 @@ class PlantListView extends React.Component{
     //     this.setState({ plants: res.data })
     //     this.props.history.push('/plants')
     //     })
-    //     .catch(err => {console.log(err) })
+    //     .catch(err => {console.log('Delete plant did not work', err) })
     // }
-    
-    addPlant = event => {
-        event.preventDefault();
-        axios
-        .post(`${baseUrl}/plants`, this.state)
-        .then(res => {
-          console.log(res);
-          this.setState({ state: res.data })
-          this.props.history.push('/plants')
-        })
-        .catch(err => {
-          console.log('Add plant did not work. You must not have a green thumb.', err)
-        })
-    }
 
     render(){
         return(
