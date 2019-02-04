@@ -12,7 +12,7 @@ const StyledHeader = styled.header`
 const Header = () => {
   return (
     <StyledHeader>
-      <h1>HairCare</h1>
+      <h1>Plant App</h1>
     </StyledHeader>
   );
 };
