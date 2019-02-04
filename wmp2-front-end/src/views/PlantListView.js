@@ -34,6 +34,19 @@ class PlantListView extends React.Component{
     //     .catch(err => {console.log(err) })
     // }
     
+    addPlant = event => {
+        event.preventDefault();
+        axios
+        .post(`${baseUrl}/plants`, this.state)
+        .then(res => {
+          console.log(res);
+          this.setState({ state: res.data })
+          this.props.history.push('/plants')
+        })
+        .catch(err => {
+          console.log('Add plant did not work. You must not have a green thumb.', err)
+        })
+    }
 
     render(){
         return(
