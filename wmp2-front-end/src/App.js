@@ -4,9 +4,12 @@ import styled from "styled-components";
 
 // Components
 import { Header } from "./components/index.js";
+import LoginView from './views/LoginView';
+import HomeView from './views/HomeView';
 
 // Action creators
 import { getSanityCheck } from "./store/actions/index.js";
+import authenticate from "./components/Authenticate.js";
 
 const StyledApp = styled.div`
   background-color: #c7dbf4;
@@ -25,6 +28,7 @@ class App extends Component {
       <StyledApp>
         <Header />
         <p className="message">{message}</p>
+        <ConditionalRender />
       </StyledApp>
     );
   }
@@ -33,6 +37,8 @@ class App extends Component {
 const mapStateToProps = state => ({
   message: state.message
 });
+
+const ConditionalRender = authenticate(HomeView)(LoginView);
 
 export default connect(
   mapStateToProps,

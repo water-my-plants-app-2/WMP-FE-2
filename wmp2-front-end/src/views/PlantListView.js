@@ -1,4 +1,7 @@
 import React from 'react';
+import axios from 'axios';
+
+// Components
 import PlantList from '../components/PlantList';
 
 class PlantListView extends React.Component{
@@ -16,20 +19,20 @@ class PlantListView extends React.Component{
           this.setState({ plants: res.data })
         })
         .catch(err => {
-          console.log('No plants here');
+          console.log('No plants here', err);
         })
       }
 
-    deletePlant = plantId => {
-    axios
-        .delete(`${baseUrl}/plants/${plantId}`)
-        .then(res => {
-        console.log(res);
-        this.setState({ plants: res.data })
-        this.props.history.push('/plants')
-        })
-        .catch(err => {console.log(err) })
-    }
+    // deletePlant = plantId => {
+    // axios
+    //     .delete(`${baseUrl}/plants/${plantId}`)
+    //     .then(res => {
+    //     console.log(res);
+    //     this.setState({ plants: res.data })
+    //     this.props.history.push('/plants')
+    //     })
+    //     .catch(err => {console.log(err) })
+    // }
     
 
     render(){

@@ -23,7 +23,7 @@ class Login extends React.Component{
     render(){
         return(
             <div>
-                <form>
+                <form autocomplete="off">
                     <input 
                     type="text"
                     onChange={this.handleChanges}
