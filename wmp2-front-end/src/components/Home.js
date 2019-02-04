@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 
 function Home(props){
     
-    routeToPlants = event => {
+    const routeToPlants = e => {
         e.preventDefault();
         props.history.push(`/plant-list`);
     };
 
-    routeToForm = event => {
+    const routeToForm = e => {
         e.preventDefault();
         props.history.push(`/plant-form`);
     };
@@ -20,11 +20,11 @@ function Home(props){
         <h2>Welcome to Your Plants!</h2>
         <div>
             See Your Plants Here:
-            <Button onClick={routeToPlants}>Go To Plants</Button>
+            <Button>Go To Plants</Button>
         </div>
         <div>
             Add New Plants Here:
-            <Button component={routeToForm}>Go To Form</Button>
+            <Button>Go To Form</Button>
         </div>
         </div>
     );

@@ -14,7 +14,7 @@ class PlantListView extends React.Component{
 
     componentDidMount(){
         axios
-        .get('')
+        .get('https://wmp2-back-end.herokuapp.com/api/usersunp/')
         .then(res => {
           this.setState({ plants: res.data })
         })
