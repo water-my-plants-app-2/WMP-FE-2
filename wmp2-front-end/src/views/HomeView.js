@@ -1,4 +1,6 @@
 import React from 'react';
+
+//Components
 import Home from '../components/Home';
 import NavBarView from './NavBarView';
 class HomeView extends React.Component{

@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+const baseUrl = 'https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
+
 class PlantForm extends React.Component{
     constructor(props){
         super(props);
@@ -55,7 +57,7 @@ class PlantForm extends React.Component{
       render(){
           return(
               <div>
-                  <form autocomplete="off" onSubmit={this.addPlant}>
+                  <form autoComplete="off" onSubmit={this.addPlant}>
                   <input 
                   onChange={this.handleInputChange}
                   placeholder="Plant Name"

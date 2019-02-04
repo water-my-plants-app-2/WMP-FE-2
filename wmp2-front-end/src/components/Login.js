@@ -24,7 +24,7 @@ class Login extends React.Component{
     render(){
         return(
             <div>
-                <form autocomplete="off">
+                <form autoComplete="off">
                     <input 
                     type="text"
                     onChange={this.handleChanges}

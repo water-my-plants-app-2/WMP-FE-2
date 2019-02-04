@@ -21,7 +21,7 @@ class extends React.Component{
     }
 
     render(){
-        if (this.state.loggedIn) return <HomeView />;
+        if (this.state.loggedIn) return <PlantListView />;
         return <Login />
     }
 }

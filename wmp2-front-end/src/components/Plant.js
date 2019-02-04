@@ -1,16 +1,16 @@
-// import React from 'react';
-// import Button from '@material-ui/core/Button';
+import React from 'react';
+import Button from '@material-ui/core/Button';
 
-// const Plant = props => {
-//     return(
-//         <div>
-//         <h3>{props.name}</h3>
-//         <p>{props.description}</p>
-//         <p>{props.lastWatered}</p>
-//         <Button>Update Plant Information</Button>
-//         <Button onClick={props.deletePlant}>Delete This Plant</Button>
-//         </div>
-//     );
-// }
+const Plant = props => {
+    return(
+        <div>
+        <h3>I am a {props.name}</h3>
+        <p>Here's how to take care of me: {props.description}</p>
+        <p>{props.lastWatered}</p>
+        <Button>Update Plant Information</Button>
+        <Button onClick={props.deletePlant}>Delete This Plant</Button>
+        </div>
+    );
+}
 
-// export default Plant;
+export default Plant;
