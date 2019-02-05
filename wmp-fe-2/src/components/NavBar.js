@@ -6,7 +6,7 @@ function NavBar(props){
         <div>
             <NavLink to="/plant-list">Plant List</NavLink>
             <NavLink to="/plant-form">Add a Plant</NavLink>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/home">Home</NavLink>
         </div>
     );
 }

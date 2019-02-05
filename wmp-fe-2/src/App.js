@@ -16,6 +16,7 @@ import PlantListView from "./views/PlantListView.js";
 
 const StyledApp = styled.div`
   background-color: #c7dbf4;
+  margin: 0 auto;
   min-height: 100vh;
   .message {
     text-align: center;
@@ -28,6 +29,7 @@ class App extends Component {
   render() {
     const { message } = this.props;
     return (
+      <div className="App">
       <StyledApp>
         <Header />
         <p className="message">{message}</p>
@@ -42,6 +44,7 @@ class App extends Component {
           <PlantFormView {...props} />
         )}/>
       </StyledApp>
+      </div>
     );
   }
 }
