@@ -7,8 +7,9 @@ import Button from '@material-ui/core/Button';
 const baseUrl = 'https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
 
 const Form = styled.form`
+    margin: 0 auto;
     display: flex;
-    width: 100%;
+    width: 50%;
     flex-direction: column;
 `
 

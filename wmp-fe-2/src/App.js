@@ -8,7 +8,6 @@ import { Header } from "./components/index.js";
 import LoginView from './views/LoginView';
 import HomeView from './views/HomeView';
 import PlantFormView from './views/PlantFormView';
-import Plant from './components/Plant';
 
 // Action creators
 import { getSanityCheck } from "./store/actions/index.js";
@@ -43,10 +42,6 @@ class App extends Component {
         <Route path="/plant-form" render={props => (
           <PlantFormView {...props} />
         )}/>
-        <Route path="/plant-list/:plantId" render={props => (
-          <Plant {...props} 
-          />
-        )} />
       </StyledApp>
       </div>
     );

@@ -11,17 +11,24 @@ const PlantWrapper = styled.div`
 `
 
 const Plant = props => {
+
+    const plant = props.plants.find(
+        plant => `${plant.id}` === props.match.params.plantId
+      );
+    
+      if (!plant) return <h2>This plant isn't here</h2>
+
     return(
         <PlantWrapper>
-        <img src={props.plant.img_url} alt={props.plant.name}/>
-        <h3>I am a {props.plant.name}</h3>
-        <p>Here's how to take care of me: {props.plant.description}</p>
-        <p>{props.plant.lastWatered}</p>
+        <img src={plant.img_url} alt={plant.name}/>
+        <h3>I am a {plant.name}</h3>
+        <p>Here's how to take care of me: {plant.description}</p>
+        <p>{plant.lastWatered}</p>
         <Button>Update Plant Information</Button>
         <Button onClick={e => {
             e.preventDefault();
             console.log('Ya clicked a delete button');
-            props.deletePlant(props.plant.id)}}>Delete This Plant</Button>
+            props.deletePlant(plant.id)}}>Delete This Plant</Button>
         </PlantWrapper>
     );
 }

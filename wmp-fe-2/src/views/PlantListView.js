@@ -1,12 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 
 // Actions
 import { deletePlant } from '../store/actions';
 
 // Components
 import PlantList from '../components/PlantList';
+import Plant from '../components/Plant';
 
 // const baseUrl = 'https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
 const deleteUrl = 'https://wmp2-back-end.herokuapp.com/api/plantsunp/';
@@ -45,10 +47,18 @@ class PlantListView extends React.Component{
 
     render(){
         return(
+        <div>
             <PlantList 
             plants={this.state.plants}
             deletePlant={this.deletePlant}
             />
+            <Route path="/plant-list/:plantId" render={props => (
+            <Plant {...props} 
+            deletePlant={this.deletePlant}
+            plants={this.state.plants}
+            />
+          )} />
+        </div>
         );
     }
 }
