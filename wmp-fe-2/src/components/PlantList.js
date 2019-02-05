@@ -10,16 +10,27 @@ const PlantListWrapper = styled.div`
     flex-wrap: wrap;
 `
 
+const PlantWrapper = styled.div`
+    margin: 2%;
+`
+
+const PlantPicture = styled.img`
+    height: 200px;
+    width: auto;
+`
+
 
 const PlantList = props => {
     return(
         <PlantListWrapper>
             {props.plants.map(plant => (
+                <PlantWrapper>
                 <Link to={`/plant-list/${plant.id}`} key={plant.id}>
-                <img src={plant.img_url} alt={plant.name}
+                <PlantPicture src={plant.img_url} alt={plant.name}
                 />
                 <p>{plant.name}</p>
-                </Link>)
+                </Link>
+                </PlantWrapper>)
                 )}
         </PlantListWrapper>
     );
