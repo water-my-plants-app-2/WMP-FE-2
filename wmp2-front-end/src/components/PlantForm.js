@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import Button from '@material-ui/core/Button';
+
 const baseUrl = 'https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
 
 class PlantForm extends React.Component{
@@ -64,6 +66,19 @@ class PlantForm extends React.Component{
                   value={this.state.name}
                   name="name"
                   />
+                  <input 
+                  onChange={this.handleInputChange}
+                  placeholder="Plant Description"
+                  value={this.state.description}
+                  name="description"
+                  />
+                  <input 
+                  onChange={this.handleInputChange}
+                  placeholder="How Often Does It Need to be Watered?"
+                  value={this.state.lastWater}
+                  name="lastWater"
+                  />
+                  <Button>Click to Add Plant!</Button>
                   </form>
               </div>
           );
