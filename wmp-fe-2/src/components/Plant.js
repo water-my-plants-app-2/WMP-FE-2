@@ -4,10 +4,27 @@ import styled from 'styled-components';
 
 const PlantWrapper = styled.div`
     border: 1px solid red;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35%;
+    margin: 0 auto;
+`
+
+const PlantPicture = styled.img`
+    height: 300px;
+    width: auto;
+`
+
+const PlantCardText = styled.div`
+    text-align: center;
+`
+
+const ButtonWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 1%;
 `
 
 const Plant = props => {
@@ -20,15 +37,20 @@ const Plant = props => {
 
     return(
         <PlantWrapper>
-        <img src={plant.img_url} alt={plant.name}/>
-        <h3>I am a {plant.name}</h3>
-        <p>Here's how to take care of me: {plant.description}</p>
-        <p>{plant.lastWatered}</p>
-        <Button>Update Plant Information</Button>
-        <Button onClick={e => {
-            e.preventDefault();
-            console.log('Ya clicked a delete button');
-            props.deletePlant(plant.id)}}>Delete This Plant</Button>
+        <PlantPicture src={plant.img_url} alt={plant.name}/>
+        <PlantCardText>
+            <h3>I am a {plant.name}</h3>
+            <p>Here's how to take care of me: {plant.description}</p>
+            <p>{plant.lastWatered}</p>
+        </PlantCardText>
+        <ButtonWrapper>
+            <Button>Update Plant Information</Button>
+            <Button onClick={e => {
+                e.preventDefault();
+                console.log('Ya clicked a delete button');
+                props.deletePlant(plant.id)}}
+                color="primary">Delete This Plant</Button>
+        </ButtonWrapper>
         </PlantWrapper>
     );
 }
