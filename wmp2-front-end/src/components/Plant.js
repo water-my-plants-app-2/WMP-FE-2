@@ -8,7 +8,7 @@ const Plant = props => {
         <p>Here's how to take care of me: {props.description}</p>
         <p>{props.lastWatered}</p>
         <Button>Update Plant Information</Button>
-        <Button onClick={props.deletePlant}>Delete This Plant</Button>
+        <Button onClick={props.deletePlant(props.id)}>Delete This Plant</Button>
         </div>
     );
 }
