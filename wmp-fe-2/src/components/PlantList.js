@@ -8,6 +8,7 @@ const PlantList = props => {
                 <Plant 
                 name={plant.name}
                 plant={plant}
+                id={plant.id}
                 key={plant.id}
                 description={plant.description}
                 lastWatered={plant.lastWatered}

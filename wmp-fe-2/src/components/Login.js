@@ -1,5 +1,11 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import styled from 'styled-components';
+
+const LoginForm = styled.div`
+    width: 100%;
+    margin: 0 auto;
+`
 
 class Login extends React.Component{
     constructor(props){
@@ -23,7 +29,7 @@ class Login extends React.Component{
 
     render(){
         return(
-            <div>
+            <LoginForm>
                 <form autoComplete="off">
                     <input 
                     type="text"
@@ -43,7 +49,7 @@ class Login extends React.Component{
                     <Button onClick={this.onLogin}>Click To Log In</Button>
 
                 </form>
-            </div>
+            </LoginForm>
         );
     }
 }

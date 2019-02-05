@@ -20,11 +20,11 @@ function Home(props){
         <h2>Welcome to Your Plants!</h2>
         <div>
             See Your Plants Here:
-            <Button>Go To Plants</Button>
+            <Button component={Link} to="/plant-list">Go To Plants</Button>
         </div>
         <div>
             Add New Plants Here:
-            <Button>Go To Form</Button>
+            <Button component={Link} to="/plant-form">Go To Form</Button>
         </div>
         </div>
     );
