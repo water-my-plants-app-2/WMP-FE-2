@@ -123,9 +123,9 @@ class PlantForm extends React.Component{
                   <input
                   type="text" 
                   onChange={this.handleInputChange}
-                  placeholder="drop in a picture of your plant!"
+                  placeholder="Drop in a picture of your plant!"
                   value={this.state.img_url}
-                  name="Plant Image"
+                  name="img_url"
                   />
                   <Button onClick={this.addPlant}>Click to Add Plant!</Button>
                   </Form>
