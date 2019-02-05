@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PlantListView from '../views/PlantListView';
+// import PlantListView from '../views/PlantListView';
 import HomeView from '../views/HomeView';
 
 const authenticate = App => Login => 

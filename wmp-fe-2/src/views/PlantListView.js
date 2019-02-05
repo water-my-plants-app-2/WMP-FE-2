@@ -8,7 +8,7 @@ import { deletePlant } from '../store/actions';
 // Components
 import PlantList from '../components/PlantList';
 
-const baseUrl = 'https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
+// const baseUrl = 'https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
 const deleteUrl = 'https://wmp2-back-end.herokuapp.com/api/plantsunp/';
 
 class PlantListView extends React.Component{

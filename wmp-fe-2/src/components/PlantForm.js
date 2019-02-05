@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Button from '@material-ui/core/Button';
 
-const baseUrl = 'https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
+const baseUrl = 'http://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
 
 class PlantForm extends React.Component{
     constructor(props){
@@ -12,19 +12,25 @@ class PlantForm extends React.Component{
             plant: {
                 name: '',
                 description: '',
-                lastWatered: ''
+                characteristic: '',
+                lastWater: '',
+                nextWater: '',
+                img_url: ''
             },
             isUpdating: false
-        }
+        };
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     addPlant = event => {
         event.preventDefault();
+        console.log('Add plant invoked ');
         axios
-        .post(`${baseUrl}`, this.state)
+        .post(`${baseUrl}`)
         .then(res => {
           console.log(res);
-          this.setState({ state: res.data })
+          this.setState({ plants: res.data })
+          console.log('AddPlant data', res.data);
           this.props.history.push('/plant-list')
         })
         .catch(err => {
@@ -42,7 +48,10 @@ class PlantForm extends React.Component{
               plant: {
                 name: '',
                 description: '',
-                lastWatered: ''
+                characteristic: '',
+                lastWater: '',
+                nextWater: '',
+                img_url: ''
               }
             });
             this.props.history.push('/plants')
@@ -61,7 +70,6 @@ class PlantForm extends React.Component{
               <div>
                   <form autoComplete="off" onSubmit={this.addPlant}>
                   <input 
-                  type="text"
                   onChange={this.handleInputChange}
                   placeholder="Plant Name"
                   value={this.state.name}
@@ -74,12 +82,33 @@ class PlantForm extends React.Component{
                   value={this.state.description}
                   name="description"
                   />
+                  <input
+                  type="text" 
+                  onChange={this.handleInputChange}
+                  placeholder="Plant Characteristic"
+                  value={this.state.characteristic}
+                  name="characteristic"
+                  />
                   <input 
                   type="text"
                   onChange={this.handleInputChange}
                   placeholder="How Often Does It Need to be Watered?"
-                  value={this.state.lastWatered}
+                  value={this.state.lastWater}
                   name="lastWater"
+                  />
+                  <input
+                  type="text" 
+                  onChange={this.handleInputChange}
+                  placeholder="When does it next need to be watered?"
+                  value={this.state.nextWater}
+                  name="nextWater"
+                  />
+                  <input
+                  type="text" 
+                  onChange={this.handleInputChange}
+                  placeholder="drop in a picture of your plant!"
+                  value={this.state.img_url}
+                  name="Plant Image"
                   />
                   <Button onClick={this.addPlant}>Click to Add Plant!</Button>
                   </form>
