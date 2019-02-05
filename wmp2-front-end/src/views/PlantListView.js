@@ -16,14 +16,13 @@ class PlantListView extends React.Component{
 
     componentDidMount(){
         axios
-        .get('https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants')
+        .get('https://api.nasa.gov/planetary/apod?api_key=cBhPySRjxlaeFZnAGh5rWlxNMhjt9hTAQZlKSVuS')
         .then(res => {
         console.log(res);
-          this.setState({ plants: res.data })
-          console.log(res.data);
+          this.setState({ plants: res.data}, () => console.log(res.data));
         })
         .catch(err => {
-          console.log('No plants here', err);
+          console.log('No plants here', err.response);
         })
       }
 
@@ -40,10 +39,11 @@ class PlantListView extends React.Component{
 
     render(){
         return(
-            <PlantList 
-            plants={this.state.plants}
-            deletePlant={this.deletePlant}
-            />
+            <div>{this.state.plants.explanation}</div>
+            // <PlantList 
+            // plants={this.state.plants}
+            // deletePlant={this.deletePlant}
+            // />
         );
     }
 }
