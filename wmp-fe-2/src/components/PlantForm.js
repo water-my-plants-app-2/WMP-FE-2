@@ -21,11 +21,11 @@ class PlantForm extends React.Component{
     addPlant = event => {
         event.preventDefault();
         axios
-        .post(`https://wmp2-back-end.herokuapp.com/api/plantsunp/`, this.state)
+        .post(`${baseUrl}`, this.state)
         .then(res => {
           console.log(res);
           this.setState({ state: res.data })
-          this.props.history.push('/plantsunp')
+          this.props.history.push('/plant-list')
         })
         .catch(err => {
           console.log('Add plant did not work. You must not have a green thumb.', err)

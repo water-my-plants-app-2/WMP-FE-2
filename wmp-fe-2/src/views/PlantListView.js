@@ -1,10 +1,15 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+
+// Actions
+import { deletePlant } from '../store/actions';
 
 // Components
 import PlantList from '../components/PlantList';
 
 const baseUrl = 'https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
+const deleteUrl = 'https://wmp2-back-end.herokuapp.com/api/plantsunp/';
 
 class PlantListView extends React.Component{
     constructor(props){
@@ -27,12 +32,13 @@ class PlantListView extends React.Component{
       }
 
     deletePlant = plantId => {
+    console.log('Hello are you here?');
     axios
-        .delete(`${baseUrl}/${plantId}`)
+        .delete(`${deleteUrl}/${plantId}`)
         .then(res => {
-        console.log(res);
-        this.setState({ plants: res.data })
-        this.props.history.push('/plants')
+        const newPlants = this.state.plants.filter(plant => plant.id !== plantId)
+        this.setState({ plants: newPlants })
+        this.props.history.push('/plant-list');
         })
         .catch(err => {console.log('Delete plant did not work', err) })
     }
@@ -47,4 +53,11 @@ class PlantListView extends React.Component{
     }
 }
 
-export default PlantListView;
+const mapStateToProps = state =>({
+    plants: state.plants
+})
+
+export default connect(
+    mapStateToProps,
+    { deletePlant }
+)(PlantListView);

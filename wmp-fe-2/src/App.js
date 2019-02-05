@@ -34,7 +34,7 @@ class App extends Component {
         <Header />
         <p className="message">{message}</p>
         <ConditionalRender />
-        <Route exact path="/home" component={HomeView} />
+        <Route exact path="/home" />
         <Route path="/plant-list" render={props => (
           <PlantListView 
           {...props}
