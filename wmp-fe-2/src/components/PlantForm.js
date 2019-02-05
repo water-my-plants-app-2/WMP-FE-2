@@ -3,20 +3,18 @@ import axios from 'axios';
 
 import Button from '@material-ui/core/Button';
 
-const baseUrl = 'http://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
+const baseUrl = 'https://cors.io/?https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
 
 class PlantForm extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            plant: {
-                name: '',
-                description: '',
-                characteristic: '',
-                lastWater: '',
-                nextWater: '',
-                img_url: ''
-            },
+            name: '',
+            description: '',
+            characteristic: '',
+            lastWater: '',
+            nextWater: '',
+            img_url: '',
             isUpdating: false
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,12 +24,12 @@ class PlantForm extends React.Component{
         event.preventDefault();
         console.log('Add plant invoked ');
         axios
-        .post(`${baseUrl}`)
+        .post(`${baseUrl}`, this.state)
         .then(res => {
           console.log(res);
-          this.setState({ plants: res.data })
+        //   this.setState({ plants: res.data })
           console.log('AddPlant data', res.data);
-          this.props.history.push('/plant-list')
+        //   this.props.history.push('/plant-list')
         })
         .catch(err => {
           console.log('Add plant did not work. You must not have a green thumb.', err)
@@ -40,19 +38,17 @@ class PlantForm extends React.Component{
 
     updatePlant = () => {
         axios
-          .put(`${baseUrl}/${this.state.plant.id}`, this.state.plant)
+          .put(`${baseUrl}/${this.state.id}`, this.state.plant)
           .then(res => {
             this.setState({
               plants: res.data,
               isUpdating: false,
-              plant: {
                 name: '',
                 description: '',
                 characteristic: '',
                 lastWater: '',
                 nextWater: '',
                 img_url: ''
-              }
             });
             this.props.history.push('/plants')
           })
