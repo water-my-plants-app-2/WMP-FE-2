@@ -8,6 +8,7 @@ import { Header } from "./components/index.js";
 import LoginView from './views/LoginView';
 import HomeView from './views/HomeView';
 import PlantFormView from './views/PlantFormView';
+import Plant from './components/Plant';
 
 // Action creators
 import { getSanityCheck } from "./store/actions/index.js";
@@ -16,7 +17,6 @@ import PlantListView from "./views/PlantListView.js";
 
 const StyledApp = styled.div`
   background-color: #c7dbf4;
-  margin: 0 auto;
   min-height: 100vh;
   .message {
     text-align: center;
@@ -43,6 +43,10 @@ class App extends Component {
         <Route path="/plant-form" render={props => (
           <PlantFormView {...props} />
         )}/>
+        <Route path="/plant-list/:plantId" render={props => (
+          <Plant {...props} 
+          />
+        )} />
       </StyledApp>
       </div>
     );

@@ -1,9 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 
+import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 
 const baseUrl = 'https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
+
+const Form = styled.form`
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+`
 
 class PlantForm extends React.Component{
     constructor(props){
@@ -36,7 +43,7 @@ class PlantForm extends React.Component{
           console.log(res);
         //   this.setState({ plants: res.data })
           console.log('AddPlant data', res.data);
-        //   this.props.history.push('/plant-list')
+          this.props.history.push('/plant-list')
         })
         .catch(err => {
           console.log('Add plant did not work. You must not have a green thumb.', err)
@@ -45,10 +52,16 @@ class PlantForm extends React.Component{
 
     updatePlant = () => {
         axios
-          .put(`${baseUrl}/${this.state.id}`, this.state.plant)
+          .put(`${baseUrl}/${this.state.id}`, {
+            name: this.state.name,
+            description: this.state.description,
+            characteristic: this.state.characteristic,
+            lastWater: this.state.lastWater,
+            nextWater: this.state.nextWater,
+            img_url: this.state.img_url
+          })
           .then(res => {
             this.setState({
-              plants: res.data,
               isUpdating: false,
                 name: '',
                 description: '',
@@ -71,7 +84,7 @@ class PlantForm extends React.Component{
       render(){
           return(
               <div>
-                  <form autoComplete="off" onSubmit={this.addPlant}>
+                  <Form autoComplete="off" onSubmit={this.addPlant}>
                   <input 
                   onChange={this.handleInputChange}
                   placeholder="Plant Name"
@@ -114,7 +127,7 @@ class PlantForm extends React.Component{
                   name="Plant Image"
                   />
                   <Button onClick={this.addPlant}>Click to Add Plant!</Button>
-                  </form>
+                  </Form>
               </div>
           );
       }
