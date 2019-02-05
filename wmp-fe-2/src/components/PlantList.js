@@ -1,11 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-// import Plant from './Plant';
+const PlantListWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+`
+
 
 const PlantList = props => {
     return(
-        <div>
+        <PlantListWrapper>
             {props.plants.map(plant => (
                 <Link to={`/plant-list/${plant.id}`} key={plant.id}>
                 <img src={plant.img_url} alt={plant.name}
@@ -13,18 +21,8 @@ const PlantList = props => {
                 <p>{plant.name}</p>
                 </Link>)
                 )}
-        </div>
+        </PlantListWrapper>
     );
 }
 
 export default PlantList;
-
-// <Plant 
-// name={plant.name}
-// plant={plant}
-// id={plant.id}
-// key={plant.id}
-// description={plant.description}
-// lastWatered={plant.lastWatered}
-// deletePlant={props.deletePlant}
-// />
