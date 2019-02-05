@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Button from '@material-ui/core/Button';
 
-const baseUrl = 'https://cors.io/?https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
+const baseUrl = 'https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
 
 class PlantForm extends React.Component{
     constructor(props){
@@ -15,7 +15,7 @@ class PlantForm extends React.Component{
             lastWater: '',
             nextWater: '',
             img_url: '',
-            isUpdating: false
+            // isUpdating: false
         };
         this.handleInputChange = this.handleInputChange.bind(this);
     }
@@ -24,7 +24,14 @@ class PlantForm extends React.Component{
         event.preventDefault();
         console.log('Add plant invoked ');
         axios
-        .post(`${baseUrl}`, this.state)
+        .post(`${baseUrl}`, {
+            name: this.state.name,
+            description: this.state.description,
+            characteristic: this.state.characteristic,
+            lastWater: this.state.lastWater,
+            nextWater: this.state.nextWater,
+            img_url: this.state.img_url
+        })
         .then(res => {
           console.log(res);
         //   this.setState({ plants: res.data })

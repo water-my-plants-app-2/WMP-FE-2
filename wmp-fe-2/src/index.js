@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
+// import axios from 'axios';
 
 // CSS reset
 import "./index.css";
@@ -17,6 +18,9 @@ import logger from "redux-logger";
 
 // Reducers
 import { UserReducer } from "./store/reducers/UserReducer.js";
+
+// axios.defaults.withCredentials = true;
+
 
 let store;
 if (process.env.NODE_ENV === "development") {
