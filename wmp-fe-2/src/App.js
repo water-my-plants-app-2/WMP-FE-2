@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { Route } from 'react-router-dom';
@@ -24,7 +25,17 @@ const StyledApp = styled.div`
 `;
 
 class App extends Component {
+  state = {
+    activePlant: null
+  }
   componentDidMount = () => this.props.getSanityCheck();
+
+  getPlantById = id => {
+    axios
+      .get(`https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants/plantById/${id}`)
+      .then(res => this.setState({ activePlant: res.data }))
+      .catch(err => console.log('Get Item By Id', err))
+  }
 
   render() {
     // const { message } = this.props;
@@ -38,6 +49,7 @@ class App extends Component {
         <Route path="/plant-list" render={props => (
           <PlantListView 
           {...props}
+          getPlantById={this.getPlantById}
           />
         )} />
         <Route exact path="/plant-form" render={props => (

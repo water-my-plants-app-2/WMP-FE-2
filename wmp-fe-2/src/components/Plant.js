@@ -23,8 +23,6 @@ const PlantCardText = styled.div`
 const ButtonWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: 1%;
 `
 
 const Plant = props => {
@@ -39,9 +37,9 @@ const Plant = props => {
         <PlantWrapper>
         <PlantPicture src={plant.img_url} alt={plant.name}/>
         <PlantCardText>
-            <h3>I am a {plant.name}</h3>
-            <p>Here's how to take care of me: {plant.description}</p>
-            <p>{plant.lastWatered}</p>
+        <h3>I am a {plant.name}</h3>
+        <p>Here's how to take care of me: {plant.description}</p>
+        <p>{plant.lastWatered}</p>
         </PlantCardText>
         <ButtonWrapper>
             <Button>Update Plant Information</Button>
@@ -49,8 +47,9 @@ const Plant = props => {
                 e.preventDefault();
                 console.log('Ya clicked a delete button');
                 props.deletePlant(plant.id)}}
-                color="primary">Delete This Plant</Button>
-        </ButtonWrapper>
+                color="primary">Delete This Plant
+            </Button>
+            </ButtonWrapper>
         </PlantWrapper>
     );
 }

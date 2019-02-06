@@ -1,16 +1,46 @@
 import React from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 // Actions
-import { deletePlant } from '../store/actions';
+import { getPlants, deletePlant } from '../store/actions';
 
 // Components
 import PlantList from '../components/PlantList';
 import Plant from '../components/Plant';
 
-// const baseUrl = 'https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
+// class PlantListView extends React.Component{
+//     state = {
+//         plants: []
+//     };
+
+//     componentDidMount(){
+//         this.props.getPlants();
+//     }
+
+//     render(){
+//         return(
+//             <PlantList 
+//             history={this.props.history}
+//             getPlantById={this.props.getPlantById}
+//             plants={this.props.plants}
+//             deletePlant={this.props.deletePlant}
+//             />
+//         );
+//     }
+// }
+
+// const mapStateToProps = state => ({
+//     plants: state.plants
+// })
+
+// export default connect(
+//     mapStateToProps,
+//     { getPlants, deletePlant }
+// )(PlantListView);
+
+const baseUrl = 'https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
 const deleteUrl = 'https://wmp2-back-end.herokuapp.com/api/plantsunp/';
 
 class PlantListView extends React.Component{
@@ -23,6 +53,7 @@ class PlantListView extends React.Component{
     }
 
     componentDidMount(){
+        // this.props.getPlants();
         axios
         .get('https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants')
         .then(res => {
@@ -81,5 +112,5 @@ const mapStateToProps = state =>({
 
 export default connect(
     mapStateToProps,
-    { deletePlant }
+    { deletePlant, getPlants }
 )(PlantListView);

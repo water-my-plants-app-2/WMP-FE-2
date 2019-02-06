@@ -18,16 +18,23 @@ import logger from "redux-logger";
 
 // Reducers
 import { UserReducer } from "./store/reducers/UserReducer.js";
+import rootReducer from './store/reducers/plantReducer';
 
 // axios.defaults.withCredentials = true;
 
 
-let store;
-if (process.env.NODE_ENV === "development") {
-  store = createStore(UserReducer, applyMiddleware(thunk, logger));
-} else {
-  store = createStore(UserReducer, applyMiddleware(thunk));
-}
+// let store;
+// if (process.env.NODE_ENV === "development") {
+//   store = createStore(UserReducer, applyMiddleware(thunk, logger));
+// } else {
+//   store = createStore(UserReducer, applyMiddleware(thunk));
+// }
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk, logger))
+)
 
 ReactDOM.render(
   <Provider store={store}>
