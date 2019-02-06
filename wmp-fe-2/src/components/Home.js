@@ -55,9 +55,9 @@ function Home(props){
     return(
         <HomeWrapper>
             <HomeHeaderWrapper>
-                <img src="https://img.icons8.com/ios/50/000000/plant-under-rain.png"></img>
+                <img src="https://img.icons8.com/ios/50/000000/plant-under-rain.png" alt="plant"></img>
                 <HomeHeader>Welcome to Your Plants!</HomeHeader>
-                <img src="https://img.icons8.com/ios/50/000000/plant-under-rain.png"></img>
+                <img src="https://img.icons8.com/ios/50/000000/plant-under-rain.png" alt="plant"></img>
             </HomeHeaderWrapper>
         <HomeLinkWrapper>
             <HomeIntroWrapperOne>

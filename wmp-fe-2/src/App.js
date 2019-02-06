@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 
 // Components
-import { Header } from "./components/index.js";
+// import { Header } from "./components/index.js";
 import LoginView from './views/LoginView';
 import HomeView from './views/HomeView';
 import PlantFormView from './views/PlantFormView';
@@ -27,7 +27,7 @@ class App extends Component {
   componentDidMount = () => this.props.getSanityCheck();
 
   render() {
-    const { message } = this.props;
+    // const { message } = this.props;
     return (
       <div className="App">
       <StyledApp>
