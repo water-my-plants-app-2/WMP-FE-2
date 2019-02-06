@@ -9,42 +9,70 @@ const HomeWrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    border: 1px solid #c1f4c9
 `
 
 const HomeLinkWrapper = styled.div`
     display: flex;
-    justify-content: space-evenly;
+    margin-top: 1%;
+    justify-content: center;
 `
 
-const HomeIntroWrapper = styled.div`
+
+const HomeIntroWrapperOne = styled.div`
     display: flex;
     flex-direction: column;
+    margin-top: 2%;
+    margin-right: 2%;
+`
+const HomeIntroWrapperTwo = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    margin-left: 2%;
+`
+
+const HomeIntroWrapperThird = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+`
+
+const HomeHeaderWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+`
+
+const HomeHeader = styled.h2`
+    font-size: 18px;
+    font-weight: bold;
+    margin: 2% 2% 0 2%;
 `
 
 function Home(props){
-    // const routeToPlants = e => {
-    //     e.preventDefault();
-    //     props.history.push(`/plant-list`);
-    // };
-
-    // const routeToForm = e => {
-    //     e.preventDefault();
-    //     props.history.push(`/plant-form`);
-    // };
 
     return(
         <HomeWrapper>
-        <h2>Welcome to Your Plants!</h2>
+            <HomeHeaderWrapper>
+                <img src="https://img.icons8.com/ios/50/000000/plant-under-rain.png"></img>
+                <HomeHeader>Welcome to Your Plants!</HomeHeader>
+                <img src="https://img.icons8.com/ios/50/000000/plant-under-rain.png"></img>
+            </HomeHeaderWrapper>
         <HomeLinkWrapper>
-            <HomeIntroWrapper>
+            <HomeIntroWrapperOne>
             See Your Plants Here:
             <Button component={Link} to="/plant-list">Go To Plants</Button>
-            </HomeIntroWrapper>
-            <HomeIntroWrapper>
+            </HomeIntroWrapperOne>
+            <HomeIntroWrapperTwo>
             Add New Plants Here:
             <Button component={Link} to="/plant-form">Go To Form</Button>
-            </HomeIntroWrapper>
+            </HomeIntroWrapperTwo>
         </HomeLinkWrapper>
+            <HomeIntroWrapperThird>
+                See Your Watering Schedule Here:
+                <Button style={{width: "15%", marginLeft: "42.5%"}}>Go To Schedule</Button>
+            </HomeIntroWrapperThird>
         </HomeWrapper>
     );
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { Route } from 'react-router-dom';
+import './App.css';
 
 // Components
 import { Header } from "./components/index.js";
@@ -30,8 +31,8 @@ class App extends Component {
     return (
       <div className="App">
       <StyledApp>
-        <Header />
-        <p className="message">{message}</p>
+        {/* <Header />
+        <p className="message">{message}</p> */}
         <ConditionalRender />
         <Route exact path="/home" />
         <Route path="/plant-list" render={props => (
@@ -39,7 +40,7 @@ class App extends Component {
           {...props}
           />
         )} />
-        <Route path="/plant-form" render={props => (
+        <Route exact path="/plant-form" render={props => (
           <PlantFormView {...props} />
         )}/>
       </StyledApp>

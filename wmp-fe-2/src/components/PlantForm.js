@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
+import ReactNotification from 'react-notifications-component';
 
 const baseUrl = 'https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
 
@@ -26,6 +27,22 @@ class PlantForm extends React.Component{
             // isUpdating: false
         };
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.addNotification = this.addNotification.bind(this);
+        this.notificationDOMRef = React.createRef();
+    }
+
+    addNotification() {
+        this.notificationDOMRef.current.addNotification({
+            title: 'Plant Stuff',
+            message: 'Plant Added!',
+            type: "success",
+            insert: "bottom",
+            container: "top-right",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: { duration: 2000 },
+            dismissable: { click: true }
+        })
     }
 
     addPlant = event => {
@@ -81,10 +98,16 @@ class PlantForm extends React.Component{
       handleInputChange = e => {
         this.setState({ [e.target.name]: e.target.value });
       };
+      
+    // handleClick = () => {
+    //     this.addNotification();
+    //     this.addPlant();
+    // }
 
       render(){
           return(
               <div>
+                  <ReactNotification ref={this.notificationDOMRef} />
                   <Form autoComplete="off" onSubmit={this.addPlant}>
                   <input 
                   onChange={this.handleInputChange}
@@ -127,7 +150,7 @@ class PlantForm extends React.Component{
                   value={this.state.img_url}
                   name="img_url"
                   />
-                  <Button onClick={this.addPlant}>Click to Add Plant!</Button>
+                  <Button onClick={() => this.addPlant}>Click to Add Plant!</Button>
                   </Form>
               </div>
           );

@@ -8116,6 +8116,13 @@ react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.7.0.tgz#c1bd21c64f1f1364c6f70695ec02d69392f41bfa"
   integrity sha512-Z0VRQdF4NPDoI0tsXVMLkJLiwEBa+RP66g0xDHxgxysxSoCUccSten4RTF/UFvZF1dZvZ9Zu1sx+MDXwcOR34g==
 
+react-notifications-component@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-notifications-component/-/react-notifications-component-1.0.1.tgz#23cc407ef5dd1818431e28bd4f2e0cc4a99ac05c"
+  integrity sha512-u8qyuAdTiTO9K+JPm4Phz/RSZWBrl+CS2A8nXzB6qSgeP3xCMNE7JISP1Kk2kFnrdGIy4/YZu6UsQ4Hp/dFUnw==
+  dependencies:
+    react "^16.4.2"
+
 react-redux@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-6.0.0.tgz#09e86eeed5febb98e9442458ad2970c8f1a173ef"
@@ -8208,7 +8215,7 @@ react-scripts@2.1.3:
   optionalDependencies:
     fsevents "1.2.4"
 
-react@^16.7.0:
+react@^16.4.2, react@^16.7.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.7.0.tgz#b674ec396b0a5715873b350446f7ea0802ab6381"
   integrity sha512-StCz3QY8lxTb5cl2HJxjwLFOXPIFQp+p+hxQfc8WE0QiLfCtIlKj8/+5tjjKm8uSTlAW+fCPaavGFS06V9Ar3A==
