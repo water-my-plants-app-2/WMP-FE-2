@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-
 import styled from 'styled-components';
 
 import Plant from './Plant';
@@ -35,7 +34,11 @@ const PlantList = props => {
                 <h3>I am a {plant.name}</h3>
                 <p>Here's how to take care of me: {plant.description}</p>
                 <p>{plant.lastWatered}</p>
-                <Button>Update Plant Information</Button>
+                <Button onClick={e => {
+                    e.preventDefault();
+                    console.log('Populate form');
+                    props.populateForm(e, plant.id);
+                }}>Update Plant Information</Button>
                 <Button onClick={e => {
                 e.preventDefault();
                 console.log('Ya clicked a delete button');

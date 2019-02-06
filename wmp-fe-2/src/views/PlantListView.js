@@ -77,14 +77,14 @@ class PlantListView extends React.Component{
         .catch(err => {console.log('Delete plant did not work', err) })
     }
 
-    // populateForm = (e, id) => {
-    //     e.preventDefault();
-    //     this.setState({
-    //       plant: this.state.plants.find(plant => plant.id === id),
-    //       isUpdating: true
-    //     });
-    //     this.props.history.push('/plant-form');
-    //   };
+    populateForm = (e, id) => {
+        e.preventDefault();
+        this.setState({
+          plant: this.state.plants.find(plant => plant.id === id),
+          isUpdating: true
+        });
+        this.props.history.push('/plant-form');
+      };
 
     render(){
         return(
@@ -92,11 +92,11 @@ class PlantListView extends React.Component{
             <PlantList 
             plants={this.state.plants}
             deletePlant={this.deletePlant}
+            populateForm={this.populateForm}
             />
             <Route path="/plant-list/:plantId" render={props => (
             <Plant {...props} 
             deletePlant={this.deletePlant}
-            // populateForm={this.populateForm}
             plants={this.state.plants}
             // isUpdating={this.state.isUpdating}
             />
