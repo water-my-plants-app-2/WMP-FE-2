@@ -1,5 +1,7 @@
 .homePage{
-    background-image: url('./6890.jpg');
-    border: 1px solid red;
+    padding-top: 5%;
+    background-image: url('./Webp.net-resizeimage.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
     height: 100vh;
 }

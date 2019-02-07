@@ -13,29 +13,29 @@ const HomeWrapper = styled.div`
 `
 
 const HomeLinkWrapper = styled.div`
+    margin: 0 auto;
     display: flex;
+    width: 75%;
     margin-top: 1%;
-    justify-content: center;
+    justify-content: space-around;
+    flex-direction: row;
 `
-
-
-const HomeIntroWrapperOne = styled.div`
+const LinkCard = styled.div`
+    border: 5px solid #B7DEC6;
+    background-color: #C5D0C5;
+    padding-top: 6%;
     display: flex;
     flex-direction: column;
-    margin-top: 2%;
-    margin-right: 2%;
-`
-const HomeIntroWrapperTwo = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 2%;
-    margin-left: 2%;
+    width: 25%;
+    height: 100px;
 `
 
-const HomeIntroWrapperThird = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 2%;
+const CardIcon = styled.img`
+    width: 12%;
+    // height: 20%;
+    margin-top: 1%;
+    margin: 0 auto;
+    align-content: center;
 `
 
 const HomeHeaderWrapper = styled.div`
@@ -45,9 +45,9 @@ const HomeHeaderWrapper = styled.div`
 `
 
 const HomeHeader = styled.h2`
-    font-size: 18px;
+    font-size: 36px;
     font-weight: bold;
-    margin: 2% 2% 0 2%;
+    margin-bottom: 3%;
 `
 
 function Home(props){
@@ -56,24 +56,25 @@ function Home(props){
         <div className="homePage">
         <HomeWrapper>
             <HomeHeaderWrapper>
-                <img src="https://img.icons8.com/ios/50/000000/plant-under-rain.png" alt="plant"></img>
                 <HomeHeader>Welcome to Your Plants!</HomeHeader>
-                <img src="https://img.icons8.com/ios/50/000000/plant-under-rain.png" alt="plant"></img>
             </HomeHeaderWrapper>
         <HomeLinkWrapper>
-            <HomeIntroWrapperOne>
-            See Your Plants Here:
-            <Button component={Link} to="/plant-list">Go To Plants</Button>
-            </HomeIntroWrapperOne>
-            <HomeIntroWrapperTwo>
-            Add New Plants Here:
-            <Button component={Link} to="/plant-form">Go To Form</Button>
-            </HomeIntroWrapperTwo>
-        </HomeLinkWrapper>
-            <HomeIntroWrapperThird>
-                See Your Watering Schedule Here:
-                <Button component={Link} to="/plant-schedule" style={{width: "15%", marginLeft: "42.5%"}}>Go To Schedule</Button>
-            </HomeIntroWrapperThird>
+            <LinkCard>
+                <span>See Your Plants Here</span>
+                <Button component={Link} to="/plant-list">Go To Plants</Button>
+                {/* <CardIcon src="https://img.icons8.com/ios/40/000000/bunch-flowers.png"></CardIcon> */}
+            </LinkCard>
+            <LinkCard>
+                <span>Add New Plants Here</span>
+                <Button component={Link} to="/plant-form">Go To Form</Button>
+                {/* <CardIcon src="https://img.icons8.com/ios/50/000000/paper-bag-with-seeds.png"></CardIcon> */}
+            </LinkCard>
+            <LinkCard>
+                <span>See Your Watering Schedule Here</span>
+                <Button component={Link} to="/plant-schedule" style={{}}>Go To Schedule</Button>
+                {/* <CardIcon src="https://img.icons8.com/ios/50/000000/plant-under-rain.png" alt="plant"></CardIcon> */}
+            </LinkCard>
+            </HomeLinkWrapper>
         </HomeWrapper>
         </div>
     );
