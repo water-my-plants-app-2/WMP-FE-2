@@ -20,7 +20,6 @@ class PlantFormView extends React.Component{
     };
 
     addPlant = () => {
-        console.log('addPlant fn', this.props);
         const newPlant = {
             name: this.props.name,
             description: this.props.description,
