@@ -12,11 +12,22 @@ const PlantListWrapper = styled.div`
 
 const PlantWrapper = styled.div`
     margin: 2%;
+    // border: 2px solid #F0F3F1;
+    background-color: white;
+    -webkit-box-shadow: 0px 7px 19px 0px rgba(66,65,66,1);
+    -moz-box-shadow: 0px 7px 19px 0px rgba(66,65,66,1);
+    box-shadow: 0px 7px 19px 0px rgba(66,65,66,1);
 `
 
 const PlantPicture = styled.img`
     height: 200px;
     width: auto;
+`
+
+const ButtonWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `
 
 function PlantList(props){
@@ -32,8 +43,9 @@ function PlantList(props){
             <PlantPicture src={plant.img_url} alt={plant.name}
             />
                 <h3>I am a {plant.name}</h3>
-                <p>How much sun I like: {plant.description}</p>
+                <p>{plant.description}</p>
                 <p>{plant.lastWatered}</p>
+            <ButtonWrapper>
             <Button onClick={() => { 
                 props.populateForm(plant.id);
                 props.history.push('/plant-form')}
@@ -41,9 +53,10 @@ function PlantList(props){
             <Button onClick={() => {
                 confirmDelete();
                 props.deletePlant(plant.id)}}
-                color="primary">Delete This Plant
+                >Delete This Plant
             </Button>
             <Button onClick={() => alert(`${plant.name} needs to be watered ${plant.lastWater}. Water it again on ${plant.nextWater}`)}>Check Watering Schedule</Button>
+            </ButtonWrapper>
             {/* </Link> */}
             </PlantWrapper>)
             )}
