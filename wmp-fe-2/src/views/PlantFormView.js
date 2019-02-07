@@ -24,7 +24,8 @@ class PlantFormView extends React.Component{
             nextWater: '',
             img_url: '',
         },
-        isEditing: false
+        isUpdating: false,
+        beingUpdated: null
     };
 
     changeHandler = ev => {
@@ -41,18 +42,26 @@ class PlantFormView extends React.Component{
     }
 
     updatePlant = () => {
+        console.log('Update is great');
         axios
             .put(
-                `https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants/${this.state.editingId}`,
-                this.state.plant
+                `https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants/${this.state.plant.id}`,
+                    {
+                    name: this.state.plant.name,
+                    description: this.state.plant.description,
+                    characteristic: this.state.plant.characteristic,
+                    lastWater: this.state.plant.lastWater,
+                    nextWater: this.state.plant.nextWater,
+                    img_url: this.state.plant.img_url,
+                    }
             )
             .then(res => {
                 this.setState({
                     plants: res.data,
-                    editingId: null,
-                    isEditing: false,
+                    isUpdating: false,
                     plant: blankPlant
-                });
+                })
+                this.props.history.push('/plant-list');
             })
             .catch(err => console.log('Redux update error', err));
     }
@@ -61,10 +70,11 @@ class PlantFormView extends React.Component{
         return(
             <div>
                 <PlantForm 
+                item={this.props.item}
                 addPlant={this.addPlant}
                 changeHandler={this.changeHandler}
                 plant={this.state.plant}
-                isEditing={this.state.isEditing}
+                isUpdating={this.props.isUpdating}
                 updatePlant={this.updatePlant}
                 />
             </div>

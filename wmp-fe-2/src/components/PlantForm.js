@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
+import { connect } from 'react-redux';
+
 // import axios from 'axios';
 
 
@@ -26,7 +28,7 @@ function PlantForm(props){
 
     const handleClick = ev => {
         ev.preventDefault();
-        if (props.isEditing){
+        if (props.isUpdating){
             props.updatePlant();
         } else {
             props.addPlant();
@@ -36,7 +38,7 @@ function PlantForm(props){
 
     return(
         <div>
-            <h2>{props.isEditing ? 'Update Plant Information' : 'Add New Plant'}</h2>
+            <h2>{props.isUpdating ? 'Update Plant Information' : 'Add New Plant'}</h2>
             <Form autoComplete="off" onSubmit={handleClick}>
                   <AddPlantInput 
                   onChange={props.changeHandler}
@@ -79,11 +81,15 @@ function PlantForm(props){
                   value={props.plant.img_url}
                   name="img_url"
                   />
-                  <Button onClick={handleClick}>{props.isEditing ? 'Update Plant Information' : 'Add New Plant'}</Button>
+                  <Button onClick={handleClick}>{props.isUpdating ? 'Update Plant Information' : 'Add New Plant'}</Button>
                   </Form>
         </div>
     );
 }
+
+const mapStateToProps = state => ({
+    plants: state.plants
+})
 
 export default withRouter(PlantForm);
 
