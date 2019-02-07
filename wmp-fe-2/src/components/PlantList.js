@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
 
 import Plant from './Plant';
 
@@ -24,6 +23,7 @@ const PlantPicture = styled.img`
 `
 
 function PlantList(props){
+    console.log('%c console logging map', 'color: green', props.plants)
     return(
         <PlantListWrapper>
         {props.plants.map(plant => (
@@ -31,11 +31,12 @@ function PlantList(props){
             {/* <Link to={`/plant-list/${plant.id}`} key={plant.id}> */}
             <PlantPicture src={plant.img_url} alt={plant.name}
             />
-            <h3>I am a {plant.name}</h3>
-            <p>Here's how to take care of me: {plant.description}</p>
-            <p>{plant.lastWatered}</p>
+                <h3>I am a {plant.name}</h3>
+                <p>Here's how to take care of me: {plant.description}</p>
+                <p>{plant.lastWatered}</p>
             <Button onClick={() => { 
                 props.populateForm(plant.id);
+                console.log('Populate button pushed');
                 props.history.push('/plant-form')}
                 }>Update Plant Information</Button>
             <Button onClick={() => {

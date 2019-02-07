@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import { addPlant, updatePlant } from '../store/actions';
+import { addPlant, updatePlant, handleChange } from '../store/actions';
 
 import PlantForm from '../components/PlantForm';
 
@@ -15,34 +15,33 @@ const blankPlant = {
     img_url: '',
 }
 class PlantFormView extends React.Component{
-    state = {
-        plant: {
-            name: '',
-            description: '',
-            characteristic: '',
-            lastWater: '',
-            nextWater: '',
-            img_url: '',
-        },
-        isUpdating: false,
-        beingUpdated: null
-    };
-
     changeHandler = ev => {
-        this.setState({
-            plant: {
-                ...this.state.plant,
-                [ev.target.name]: ev.target.value
-            }
-        });
+        this.props.handleChange(ev.target.name, ev.target.value)
     };
 
     addPlant = () => {
-        this.props.addPlant(this.state.plant);
+        console.log('addPlant fn', this.props);
+        const newPlant = {
+            name: this.props.name,
+            description: this.props.description,
+            characteristic: this.props.characteristic,
+            lastWater: this.props.lastWater,
+            nextWater: this.props.nextWater,
+            img_url: this.props.img_url
+        }
+        this.props.addPlant(newPlant);
     }
 
     updatePlant = () => {
-        this.props.updatePlant(this.state.plant);
+        const newPlant = {
+            name: this.props.name,
+            description: this.props.description,
+            characteristic: this.props.characteristic,
+            lastWater: this.props.lastWater,
+            nextWater: this.props.nextWater,
+            img_url: this.props.img_url
+        }
+        this.props.updatePlant(newPlant, this.props.beingUpdated);
     }
     
     render(){
@@ -51,18 +50,28 @@ class PlantFormView extends React.Component{
                 <PlantForm 
                 addPlant={this.addPlant}
                 changeHandler={this.changeHandler}
-                plant={this.state.plant}
                 isUpdating={this.props.isUpdating}
                 updatePlant={this.updatePlant}
+                history={this.props.history}
+                plant={this.props}
                 />
             </div>
         );
     }
 }
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => ({
+    name: state.name,
+    description: state.description,
+    characteristic: state.characteristic,
+    lastWater: state.lastWater,
+    nextWater: state.nextWater,
+    img_url: state.img_url,
+    isUpdating: state.isUpdating,
+    beingUpdated: state.beingUpdated
+})
 
 export default connect(
     mapStateToProps,
-    { addPlant, updatePlant }
+    { addPlant, updatePlant, handleChange }
 )(PlantFormView);

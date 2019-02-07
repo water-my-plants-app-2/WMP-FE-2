@@ -23,10 +23,12 @@ export {
   UPDATE_PLANT_SUCCESS,
   UPDATE_PLANT_FAIL,
   POPULATE_PLANT,
+  HANDLE_CHANGE,
   getPlants,
   deletePlant,
   updatePlant,
-  populateForm
+  populateForm,
+  handleChange
 } from './plantActions';
 
 export {

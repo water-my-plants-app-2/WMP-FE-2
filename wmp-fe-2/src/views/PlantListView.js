@@ -11,15 +11,12 @@ import PlantList from '../components/PlantList';
 import Plant from '../components/Plant';
 
 class PlantListView extends React.Component{
-    state = {
-        plants: []
-    };
-
     componentDidMount(){
         this.props.getPlants();
     }
 
     render(){
+        console.log('%c console logging plants', 'color: red', this.props.plants);
         return(
             <PlantList 
             plants={this.props.plants}

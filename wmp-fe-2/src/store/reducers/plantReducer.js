@@ -10,6 +10,7 @@ import {
     // DELETE_PLANT_FAILURE,
     UPDATE_PLANT_SUCCESS,
     POPULATE_PLANT,
+    HANDLE_CHANGE,
   } from '../actions';
 
 const initialState = {
@@ -35,7 +36,7 @@ const plants = (state = initialState, action) => {
         case ADD_PLANT_SUCCESS:
         return {
             ...state,
-            isAddingItem: false,
+            isAddingPlant: false,
             error: '',
             plants: action.payload
         }
@@ -62,6 +63,11 @@ const plants = (state = initialState, action) => {
             img_url: selectPlant.img_url,
             isUpdating: true,
             beingUpdated: selectPlant.id
+        }
+        case HANDLE_CHANGE:
+        return{
+            ...state,
+            [action.payload.name]: action.payload.value
         }
 
         default:
