@@ -43,7 +43,7 @@ function PlantList(props){
                 props.deletePlant(plant.id)}}
                 color="primary">Delete This Plant
             </Button>
-            <Button onClick={() => alert(`Water this plant on ${plant.nextWater}`)}>Check Watering Schedule</Button>
+            <Button onClick={() => alert(`${plant.name} needs to be watered ${plant.lastWater}. Water it again on ${plant.nextWater}`)}>Check Watering Schedule</Button>
             {/* </Link> */}
             </PlantWrapper>)
             )}

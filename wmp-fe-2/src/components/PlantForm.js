@@ -55,14 +55,14 @@ function PlantForm(props){
                   <AddPlantInput 
                   type="text"
                   onChange={props.changeHandler}
-                  placeholder="How Often Does It Need to be Watered?"
+                  placeholder="How often does it need to be watered?"
                   value={props.plant.lastWater}
                   name="lastWater"
                   />
                   <AddPlantInput
                   type="text" 
                   onChange={props.changeHandler}
-                  placeholder="When does it next need to be watered?"
+                  placeholder="On what date does it next need to be watered?"
                   value={props.plant.nextWater}
                   name="nextWater"
                   />
