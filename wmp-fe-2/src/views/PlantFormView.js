@@ -1,19 +1,9 @@
 import React from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 
 import { addPlant, updatePlant, handleChange } from '../store/actions';
 
 import PlantForm from '../components/PlantForm';
-
-const blankPlant = {
-    name: '',
-    description: '',
-    characteristic: '',
-    lastWater: '',
-    nextWater: '',
-    img_url: '',
-}
 class PlantFormView extends React.Component{
     changeHandler = ev => {
         this.props.handleChange(ev.target.name, ev.target.value)
