@@ -9,7 +9,6 @@ const HomeWrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    border: 1px solid #c1f4c9
 `
 
 const HomeLinkWrapper = styled.div`
