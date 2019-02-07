@@ -34,7 +34,10 @@ function PlantList(props){
             <h3>I am a {plant.name}</h3>
             <p>Here's how to take care of me: {plant.description}</p>
             <p>{plant.lastWatered}</p>
-            <Button>Update Plant Information</Button>
+            <Button onClick={() => { 
+                props.populateForm(plant.id);
+                props.history.push('/plant-form')}
+                }>Update Plant Information</Button>
             <Button onClick={() => {
                 console.log('Ya clicked a delete button');
                 props.deletePlant(plant.id)}}

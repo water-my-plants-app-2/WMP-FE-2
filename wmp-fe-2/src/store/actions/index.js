@@ -25,7 +25,8 @@ export {
   POPULATE_PLANT,
   getPlants,
   deletePlant,
-  updatePlant
+  updatePlant,
+  populateForm
 } from './plantActions';
 
 export {
