@@ -20,6 +20,10 @@ const PlantPicture = styled.img`
 `
 
 function PlantList(props){
+    const confirmDelete = () => {
+        let r = window.confirm(`Do you want to delete this plant?`)
+    }
+
     return(
         <PlantListWrapper>
         {props.plants.map(plant => (
@@ -28,14 +32,14 @@ function PlantList(props){
             <PlantPicture src={plant.img_url} alt={plant.name}
             />
                 <h3>I am a {plant.name}</h3>
-                <p>Here's how to take care of me: {plant.description}</p>
+                <p>How much sun I like: {plant.description}</p>
                 <p>{plant.lastWatered}</p>
             <Button onClick={() => { 
                 props.populateForm(plant.id);
                 props.history.push('/plant-form')}
                 }>Update Plant Information</Button>
             <Button onClick={() => {
-                alert(`Are you sure you want to proceed?`);
+                confirmDelete();
                 props.deletePlant(plant.id)}}
                 color="primary">Delete This Plant
             </Button>

@@ -41,7 +41,7 @@ function PlantForm(props){
                   <AddPlantInput
                   type="text" 
                   onChange={props.changeHandler}
-                  placeholder="Describe how to take care of this plant"
+                  placeholder="How much sun does your plant like?"
                   value={props.plant.description}
                   name="description"
                   />
