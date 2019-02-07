@@ -24,7 +24,8 @@ export {
   UPDATE_PLANT_FAIL,
   POPULATE_PLANT,
   getPlants,
-  deletePlant
+  deletePlant,
+  updatePlant
 } from './plantActions';
 
 export {
