@@ -8,9 +8,9 @@ function PlantSchedule(props){
             {props.plants.map(plant => (
                 <div>
                     <h3>I am a {plant.name}</h3>
-                    <p>I was last watered on {plant.lastWater}</p>
-                    <p>I need to be watered {plant.nextWater}</p>
-                    {/* <Button onClick={alert(`Water this plant next on ${plant.nextWater}`)}>Click to Water!</Button> */}
+                    <p>I need to be watered {plant.lastWater}</p>
+                    <p>The date I need to be watered next is {plant.nextWater}</p>
+                    {/* <Button onClick={alert(`Water successful! Water this plant next on ${plant.nextWater}`)}>Click to Water!</Button> */}
                 </div>
             ))}
         </div>
