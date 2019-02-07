@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const LoginFormWrapper = styled.div`
     width: 50%;
-    border: 5px solid #c1f4c9;
+    // border: 5px solid #c1f4c9;
     padding-top: 2%;
     padding-bottom: 1%;
     margin: 0 auto;
@@ -12,7 +12,10 @@ const LoginFormWrapper = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: lightgray;
+    background-color: white;
+    -webkit-box-shadow: 4px 4px 13px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 4px 13px 0px rgba(0,0,0,0.75);
+    box-shadow: 4px 4px 13px 0px rgba(0,0,0,0.75);
     //#c1f4c9;
 `
 
