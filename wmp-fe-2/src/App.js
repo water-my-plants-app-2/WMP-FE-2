@@ -29,7 +29,7 @@ class App extends Component {
           <PlantListView {...props} /> )} />
         <Route exact path="/plant-form" render={props => (
           <PlantFormView {...props} /> )}/>
-        <Route exact path="/plant-schedule" render={props => (
+        <Route path="/plant-schedule" render={props => (
           <PlantScheduleView {...props} />
           )} />
       </StyledApp>

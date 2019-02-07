@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+
 
 function PlantSchedule(props){
     return(
@@ -8,6 +10,7 @@ function PlantSchedule(props){
                     <h3>I am a {plant.name}</h3>
                     <p>I was last watered on {plant.lastWater}</p>
                     <p>Please water me next on {plant.nextWater}</p>
+                    {/* <Button onClick={alert(`Water this plant next on ${plant.nextWater}`)}>Click to Water!</Button> */}
                 </div>
             ))}
         </div>

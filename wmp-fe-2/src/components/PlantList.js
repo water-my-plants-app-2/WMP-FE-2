@@ -35,9 +35,11 @@ function PlantList(props){
                 props.history.push('/plant-form')}
                 }>Update Plant Information</Button>
             <Button onClick={() => {
+                alert(`Are you sure you want to proceed?`);
                 props.deletePlant(plant.id)}}
                 color="primary">Delete This Plant
             </Button>
+            <Button onClick={() => alert(`Water this plant on ${plant.nextWater}`)}>Check Watering Schedule</Button>
             {/* </Link> */}
             </PlantWrapper>)
             )}
