@@ -1,4 +1,5 @@
 import React from 'react';
+import './Home.css';
 
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
@@ -52,6 +53,7 @@ const HomeHeader = styled.h2`
 function Home(props){
 
     return(
+        <div className="homePage">
         <HomeWrapper>
             <HomeHeaderWrapper>
                 <img src="https://img.icons8.com/ios/50/000000/plant-under-rain.png" alt="plant"></img>
@@ -73,6 +75,7 @@ function Home(props){
                 <Button component={Link} to="/plant-schedule" style={{width: "15%", marginLeft: "42.5%"}}>Go To Schedule</Button>
             </HomeIntroWrapperThird>
         </HomeWrapper>
+        </div>
     );
 }
 

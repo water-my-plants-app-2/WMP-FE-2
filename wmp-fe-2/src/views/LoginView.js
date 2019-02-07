@@ -1,12 +1,6 @@
 import React from 'react';
 import Login from '../components/Login';
-import styled from 'styled-components';
-
-const LoginViewWrapper = styled.div`
-    border: 1px solid red;
-    background-image: url('../plantAppBg.jpg');
-
-`
+import './LoginView.css';
 
 class LoginView extends React.Component{
     constructor(props){
@@ -16,10 +10,12 @@ class LoginView extends React.Component{
 
     render(){
         return(
-            <LoginViewWrapper>
+            <div className="LoginBg">
+                <div className="loginWrapper">
                 <Login 
                 />
-            </LoginViewWrapper>
+                </div>
+            </div>
         );
     }
 }

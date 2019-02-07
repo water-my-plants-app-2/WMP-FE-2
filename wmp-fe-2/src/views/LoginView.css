@@ -1,0 +1,9 @@
+.LoginBg{
+    background-image: url('./greenPlantLoginBg.jpg');
+    border: 1px solid green;
+    height: 100vh;
+}
+
+.loginWrapper{
+    margin-top: 13%;
+}

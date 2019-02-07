@@ -25,6 +25,7 @@ class App extends Component {
       <div className="App">
       <StyledApp>
         <ConditionalRender />
+        <Route exact path="/" component={HomeView} />
         <Route path="/plant-list" render={props => (
           <PlantListView {...props} /> )} />
         <Route exact path="/plant-form" render={props => (

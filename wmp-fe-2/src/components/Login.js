@@ -4,14 +4,16 @@ import styled from 'styled-components';
 
 const LoginFormWrapper = styled.div`
     width: 50%;
+    border: 5px solid #c1f4c9;
     padding-top: 2%;
+    padding-bottom: 1%;
     margin: 0 auto;
     font-family: merriweather, sans-serif;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    // background-color: #c1f4c9;
-    // height: 900px;
+    background-color: lightgray;
+    //#c1f4c9;
 `
 
 const LoginHeaderWrapper = styled.div`
@@ -22,17 +24,14 @@ const LoginHeaderWrapper = styled.div`
 `
 
 const LoginHeader = styled.h1`
-    font-size: 26px;
+    font-size: 46px;
     font-weight: bold;
-`
+    font-family: 'Italiana', serif;
+    `
 
-const HeaderTwo = styled.h2`
-    margin-top: 2%;
-    font-weight: 400;
-    line-height: 18px;
-`
 const SubTitle = styled.span`
     margin-top: 2%;
+    font-family: 'Italiana', serif;
 `
 
 const LoginForm = styled.form`
@@ -47,6 +46,8 @@ const FormInput = styled.input`
     font-size: 18px;
     width: 75%;
     align-self: center;
+    font-family: 'Italiana', serif;
+
 `
 
 const LoginIcon = styled.img`
@@ -62,24 +63,19 @@ class Login extends React.Component{
             password: ''
         }
     }
-
     handleChanges = ev => {
         this.setState({ [ev.target.name]: ev.target.value })
     }
-
     onLogin = ev => {
         const user = this.state.username
         localStorage.setItem('user', user)
         window.location.reload();
     }
-
-
     render(){
         return(
             <LoginFormWrapper>
                 <LoginHeaderWrapper>
-                    <LoginHeader>Welcome to Water My Plants!</LoginHeader>
-                    <HeaderTwo>Ready to start hydrating your plants?</HeaderTwo>
+                    <LoginHeader>Water My Plants</LoginHeader>
                     <SubTitle>Log In To Begin!</SubTitle>
                 </LoginHeaderWrapper>
                 <LoginForm autoComplete="off">
@@ -89,7 +85,6 @@ class Login extends React.Component{
                     value={this.state.username}
                     name="username"
                     placeholder="Username"
-                    // Needs an addUser fn passed down or created here
                     />
                     <FormInput 
                     type="password"
