@@ -31,6 +31,7 @@ export const deletePlant = plantId => dispatch => {
     .delete(`https://wmp2-back-end.herokuapp.com/api/plantsunp/${plantId}`)
     .then(response => {
       dispatch({ type: DELETE_PLANT_SUCCESS, payload: response.data });
+      dispatch(alert("You are deleting a plant!"))
     })
     .catch(error => dispatch({ type: DELETE_PLANT_FAILURE, payload: error }));
 };

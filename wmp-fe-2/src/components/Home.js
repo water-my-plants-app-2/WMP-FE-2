@@ -71,7 +71,7 @@ function Home(props){
         </HomeLinkWrapper>
             <HomeIntroWrapperThird>
                 See Your Watering Schedule Here:
-                <Button style={{width: "15%", marginLeft: "42.5%"}}>Go To Schedule</Button>
+                <Button component={Link} to="/plant-schedule" style={{width: "15%", marginLeft: "42.5%"}}>Go To Schedule</Button>
             </HomeIntroWrapperThird>
         </HomeWrapper>
     );

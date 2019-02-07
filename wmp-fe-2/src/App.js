@@ -9,6 +9,7 @@ import HomeView from './views/HomeView';
 import PlantFormView from './views/PlantFormView';
 import PlantListView from "./views/PlantListView.js";
 import authenticate from "./components/Authenticate.js";
+import PlantScheduleView from "./views/PlantScheduleView";
 
 const StyledApp = styled.div`
   background-color: #c7dbf4;
@@ -28,6 +29,9 @@ class App extends Component {
           <PlantListView {...props} /> )} />
         <Route exact path="/plant-form" render={props => (
           <PlantFormView {...props} /> )}/>
+        <Route exact path="/plant-schedule" render={props => (
+          <PlantScheduleView {...props} />
+          )} />
       </StyledApp>
       </div>
     );
