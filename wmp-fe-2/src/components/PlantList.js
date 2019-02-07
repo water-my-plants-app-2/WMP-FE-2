@@ -19,6 +19,12 @@ const PlantPicture = styled.img`
     width: auto;
 `
 
+const ButtonWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`
+
 function PlantList(props){
     const confirmDelete = () => {
         let r = window.confirm(`Do you want to delete this plant?`);
@@ -34,6 +40,7 @@ function PlantList(props){
                 <h3>I am a {plant.name}</h3>
                 <p>How much sun I like: {plant.description}</p>
                 <p>{plant.lastWatered}</p>
+            <ButtonWrapper>
             <Button onClick={() => { 
                 props.populateForm(plant.id);
                 props.history.push('/plant-form')}
@@ -41,9 +48,10 @@ function PlantList(props){
             <Button onClick={() => {
                 confirmDelete();
                 props.deletePlant(plant.id)}}
-                color="primary">Delete This Plant
+                >Delete This Plant
             </Button>
             <Button onClick={() => alert(`${plant.name} needs to be watered ${plant.lastWater}. Water it again on ${plant.nextWater}`)}>Check Watering Schedule</Button>
+            </ButtonWrapper>
             {/* </Link> */}
             </PlantWrapper>)
             )}
