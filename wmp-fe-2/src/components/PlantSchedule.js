@@ -9,7 +9,7 @@ function PlantSchedule(props){
                 <div>
                     <h3>I am a {plant.name}</h3>
                     <p>I was last watered on {plant.lastWater}</p>
-                    <p>Please water me next on {plant.nextWater}</p>
+                    <p>I need to be watered {plant.nextWater}</p>
                     {/* <Button onClick={alert(`Water this plant next on ${plant.nextWater}`)}>Click to Water!</Button> */}
                 </div>
             ))}
