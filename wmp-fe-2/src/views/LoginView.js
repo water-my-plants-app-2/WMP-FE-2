@@ -1,5 +1,12 @@
 import React from 'react';
 import Login from '../components/Login';
+import styled from 'styled-components';
+
+const LoginViewWrapper = styled.div`
+    border: 1px solid red;
+    background-image: url('../plantAppBg.jpg');
+
+`
 
 class LoginView extends React.Component{
     constructor(props){
@@ -9,9 +16,10 @@ class LoginView extends React.Component{
 
     render(){
         return(
-            <Login 
-            // Needs addUser passed down to it from either store or View state
-            />
+            <LoginViewWrapper>
+                <Login 
+                />
+            </LoginViewWrapper>
         );
     }
 }

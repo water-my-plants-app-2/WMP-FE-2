@@ -21,7 +21,7 @@ const PlantPicture = styled.img`
 
 function PlantList(props){
     const confirmDelete = () => {
-        let r = window.confirm(`Do you want to delete this plant?`)
+        let r = window.confirm(`Do you want to delete this plant?`);
     }
 
     return(
