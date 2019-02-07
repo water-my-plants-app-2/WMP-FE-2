@@ -52,6 +52,7 @@ const HomeHeader = styled.h2`
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 3%;
+    text-shadow: -3px 0px 2px rgba(150, 150, 150, 1);
 `
 
 function Home(props){

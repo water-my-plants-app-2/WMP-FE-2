@@ -12,6 +12,11 @@ const PlantListWrapper = styled.div`
 
 const PlantWrapper = styled.div`
     margin: 2%;
+    // border: 2px solid #F0F3F1;
+    background-color: white;
+    -webkit-box-shadow: 0px 7px 19px 0px rgba(66,65,66,1);
+    -moz-box-shadow: 0px 7px 19px 0px rgba(66,65,66,1);
+    box-shadow: 0px 7px 19px 0px rgba(66,65,66,1);
 `
 
 const PlantPicture = styled.img`
@@ -38,7 +43,7 @@ function PlantList(props){
             <PlantPicture src={plant.img_url} alt={plant.name}
             />
                 <h3>I am a {plant.name}</h3>
-                <p>How much sun I like: {plant.description}</p>
+                <p>{plant.description}</p>
                 <p>{plant.lastWatered}</p>
             <ButtonWrapper>
             <Button onClick={() => { 
