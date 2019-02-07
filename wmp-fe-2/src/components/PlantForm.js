@@ -1,116 +1,83 @@
 import React from 'react';
-import axios from 'axios';
 
+import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
+// import ReactNotification from 'react-notifications-component';
 
-const baseUrl = 'https://cors.io/?https://wmp2-back-end.herokuapp.com/api/usersunp/4/plants';
+const Form = styled.form`
+    margin: 0 auto;
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+`
+const AddPlantInput = styled.input`
+    font-size: 16px;
+    padding-left: 1%;
+`
 
-class PlantForm extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            name: '',
-            description: '',
-            characteristic: '',
-            lastWater: '',
-            nextWater: '',
-            img_url: '',
-            isUpdating: false
-        };
-        this.handleInputChange = this.handleInputChange.bind(this);
-    }
+function PlantForm(props){
 
-    addPlant = event => {
-        event.preventDefault();
-        console.log('Add plant invoked ');
-        axios
-        .post(`${baseUrl}`, this.state)
-        .then(res => {
-          console.log(res);
-        //   this.setState({ plants: res.data })
-          console.log('AddPlant data', res.data);
-        //   this.props.history.push('/plant-list')
-        })
-        .catch(err => {
-          console.log('Add plant did not work. You must not have a green thumb.', err)
-        })
-    }
+    const handleClick = ev => {
+        ev.preventDefault();
+        if (props.plant.isUpdating){
+            props.updatePlant();
+        } else {
+            props.addPlant();
+            props.history.push('/plant-list')
+        }
+        props.history.push('/plant-list');
+    };
 
-    updatePlant = () => {
-        axios
-          .put(`${baseUrl}/${this.state.id}`, this.state.plant)
-          .then(res => {
-            this.setState({
-              plants: res.data,
-              isUpdating: false,
-                name: '',
-                description: '',
-                characteristic: '',
-                lastWater: '',
-                nextWater: '',
-                img_url: ''
-            });
-            this.props.history.push('/plants')
-          })
-          .catch(err => {
-            console.log('Update fn is not working', err);
-          })
-      }
-    
-      handleInputChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
-      };
-
-      render(){
-          return(
-              <div>
-                  <form autoComplete="off" onSubmit={this.addPlant}>
-                  <input 
-                  onChange={this.handleInputChange}
+    return(
+        <div>
+            <h2>{props.isUpdating ? 'Update Plant Information' : 'Add New Plant'}</h2>
+            <Form autoComplete="off" onSubmit={handleClick}>
+                  <AddPlantInput 
+                  onChange={props.changeHandler}
                   placeholder="Plant Name"
-                  value={this.state.name}
+                  value={props.plant.name}
                   name="name"
                   />
-                  <input
+                  <AddPlantInput
                   type="text" 
-                  onChange={this.handleInputChange}
-                  placeholder="Plant Description"
-                  value={this.state.description}
+                  onChange={props.changeHandler}
+                  placeholder="How much sun does your plant like?"
+                  value={props.plant.description}
                   name="description"
                   />
-                  <input
+                  <AddPlantInput
                   type="text" 
-                  onChange={this.handleInputChange}
+                  onChange={props.changeHandler}
                   placeholder="Plant Characteristic"
-                  value={this.state.characteristic}
+                  value={props.plant.characteristic}
                   name="characteristic"
                   />
-                  <input 
+                  <AddPlantInput 
                   type="text"
-                  onChange={this.handleInputChange}
-                  placeholder="How Often Does It Need to be Watered?"
-                  value={this.state.lastWater}
+                  onChange={props.changeHandler}
+                  placeholder="How often does it need to be watered?"
+                  value={props.plant.lastWater}
                   name="lastWater"
                   />
-                  <input
+                  <AddPlantInput
                   type="text" 
-                  onChange={this.handleInputChange}
-                  placeholder="When does it next need to be watered?"
-                  value={this.state.nextWater}
+                  onChange={props.changeHandler}
+                  placeholder="On what date does it next need to be watered?"
+                  value={props.plant.nextWater}
                   name="nextWater"
                   />
-                  <input
+                  <AddPlantInput
                   type="text" 
-                  onChange={this.handleInputChange}
-                  placeholder="drop in a picture of your plant!"
-                  value={this.state.img_url}
-                  name="Plant Image"
+                  onChange={props.changeHandler}
+                  placeholder="Drop in a picture of your plant!"
+                  value={props.plant.img_url}
+                  name="img_url"
                   />
-                  <Button onClick={this.addPlant}>Click to Add Plant!</Button>
-                  </form>
-              </div>
-          );
-      }
+                  <Button onClick={handleClick}>{props.isUpdating ? 'Update Plant Information' : 'Add New Plant'}</Button>
+                  </Form>
+        </div>
+    );
 }
+
 
 export default PlantForm;

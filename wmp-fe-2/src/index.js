@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
+// import axios from 'axios';
 
 // CSS reset
 import "./index.css";
@@ -16,14 +17,13 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 
 // Reducers
-import { UserReducer } from "./store/reducers/UserReducer.js";
+import rootReducer from './store/reducers/plantReducer';
 
-let store;
-if (process.env.NODE_ENV === "development") {
-  store = createStore(UserReducer, applyMiddleware(thunk, logger));
-} else {
-  store = createStore(UserReducer, applyMiddleware(thunk));
-}
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk, logger))
+)
 
 ReactDOM.render(
   <Provider store={store}>

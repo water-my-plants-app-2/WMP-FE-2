@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import {
   GETTING_SANITY_CHECK,
   GETTING_SANITY_CHECK_COMPLETE,
@@ -14,16 +12,29 @@ export {
   getSanityCheck
 };
 
-export const DELETE_PLANT_START = 'DELETE_PLANT_START';
-export const DELETE_PLANT_SUCCESS = 'DELETE_PLANT_SUCCESS';
-export const DELETE_PLANT_FAIL = 'DELETE_PLANT_FAIL';
+export {
+  FETCH_PLANTS_START,
+  FETCH_PLANTS_SUCCESS,
+  FETCH_PLANTS_FAILURE,
+  DELETE_PLANT_START,
+  DELETE_PLANT_SUCCESS,
+  DELETE_PLANT_FAILURE,
+  UPDATE_PLANT_START,
+  UPDATE_PLANT_SUCCESS,
+  UPDATE_PLANT_FAIL,
+  POPULATE_PLANT,
+  HANDLE_CHANGE,
+  getPlants,
+  deletePlant,
+  updatePlant,
+  populateForm,
+  handleChange
+} from './plantActions';
 
-export const deletePlant = plantId => dispatch => {
-  dispatch({ type: DELETE_PLANT_START});
-  axios
-    .delete(`https://wmp2-back-end.herokuapp.com/api/plantsunp/${plantId}`)
-    .then(res =>
-      dispatch({ type: DELETE_PLANT_SUCCESS, payload: res.data })
-      )
-    .catch(err => dispatch({ type: DELETE_PLANT_FAIL, payload: err}))
-}
+export {
+  ADD_PLANT_START,
+  ADD_PLANT_SUCCESS,
+  ADD_PLANT_FAILURE,
+  addPlant
+} from './formActions';
+
