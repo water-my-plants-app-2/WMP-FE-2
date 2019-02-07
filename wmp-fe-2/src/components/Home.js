@@ -21,13 +21,17 @@ const HomeLinkWrapper = styled.div`
     flex-direction: row;
 `
 const LinkCard = styled.div`
-    border: 5px solid #B7DEC6;
-    background-color: #C5D0C5;
+    // border: 5px solid #B7DEC6;
+    // background-color: #C5D0C5;
+    background-color: white;
     padding-top: 6%;
     display: flex;
     flex-direction: column;
     width: 25%;
     height: 100px;
+    -webkit-box-shadow: 0px 11px 5px 0px rgba(138,130,138,0.69);
+    -moz-box-shadow: 0px 11px 5px 0px rgba(138,130,138,0.69);
+    box-shadow: 0px 11px 5px 0px rgba(138,130,138,0.69);
 `
 
 const CardIcon = styled.img`
