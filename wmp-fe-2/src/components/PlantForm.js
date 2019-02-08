@@ -4,6 +4,20 @@ import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 // import ReactNotification from 'react-notifications-component';
 
+const FormWrapper = styled.div`
+    border: 1px solid green;
+    margin-top: 2%;
+    width: 86.9%;
+    background-color: white;
+    margin: 0 auto;
+`
+
+const FormHeader = styled.h2`
+    margin-top: 2%;
+    margin-bottom: 1%;
+    font-size: 24px;
+`
+
 const Form = styled.form`
     margin: 0 auto;
     display: flex;
@@ -29,8 +43,8 @@ function PlantForm(props){
     };
 
     return(
-        <div>
-            <h2>{props.isUpdating ? 'Update Plant Information' : 'Add New Plant'}</h2>
+        <FormWrapper>
+            <FormHeader>{props.isUpdating ? 'Update Plant Information' : 'Add New Plant'}</FormHeader>
             <Form autoComplete="off" onSubmit={handleClick}>
                   <AddPlantInput 
                   onChange={props.changeHandler}
@@ -75,7 +89,7 @@ function PlantForm(props){
                   />
                   <Button onClick={handleClick}>{props.isUpdating ? 'Update Plant Information' : 'Add New Plant'}</Button>
                   </Form>
-        </div>
+        </FormWrapper>
     );
 }
 
